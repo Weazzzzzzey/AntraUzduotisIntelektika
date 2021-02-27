@@ -1,0 +1,16 @@
+Tomas,190,85,Normalus,23.55,0;
+Arminas,171,83,Antsvoris,28.38,0;
+Herkus,173,77,Antsvoris,25.73,0;
+Jokūbas,182,70,Normalus,21.13,0;
+Nedas,182,112,Nutukimas,33.81,0;
+Rokas,184,84,Normalus,24.81,0;
+Rytis,187,89,Normalus,25.46,0;
+Vakaris,169,89,Nutukimas,31.16,0;
+Agnė,169,45,Nepakankamas,15.76,1;
+Aistė,174,68,Normalus,22.46,1;
+Jorė,173,78,Antsvoris,26.06,1;
+Jovita,167,51,Nepakankamas,18.29,1;
+Neringa,159,51,Normalus,20.17,1;
+Viltė,187,71,Normalus,20.30,1;
+Viktorija,177,89,Antstvoris,28.41,1;
+Karolina,176,95,Nutukimas,30.67,1;
