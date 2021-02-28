@@ -39,14 +39,21 @@ namespace AntraUzduotisIntelektika
             this.KMIClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KMI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pasirinkimai = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ReadDataButton
             // 
-            this.ReadDataButton.Location = new System.Drawing.Point(12, 415);
+            this.ReadDataButton.Location = new System.Drawing.Point(9, 337);
+            this.ReadDataButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ReadDataButton.Name = "ReadDataButton";
-            this.ReadDataButton.Size = new System.Drawing.Size(181, 23);
+            this.ReadDataButton.Size = new System.Drawing.Size(136, 19);
             this.ReadDataButton.TabIndex = 1;
             this.ReadDataButton.Text = "Pasirinkti failą";
             this.ReadDataButton.UseVisualStyleBackColor = true;
@@ -55,18 +62,20 @@ namespace AntraUzduotisIntelektika
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(10, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Failo vieta: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 13);
+            this.label2.Location = new System.Drawing.Point(64, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
             // 
@@ -80,11 +89,12 @@ namespace AntraUzduotisIntelektika
             this.KMIClass,
             this.KMI,
             this.Gender});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 28);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(724, 375);
+            this.dataGridView1.Size = new System.Drawing.Size(548, 305);
             this.dataGridView1.TabIndex = 4;
             // 
             // Names
@@ -129,15 +139,73 @@ namespace AntraUzduotisIntelektika
             this.Gender.Name = "Gender";
             this.Gender.Width = 60;
             // 
+            // Pasirinkimai
+            // 
+            this.Pasirinkimai.AutoSize = true;
+            this.Pasirinkimai.Location = new System.Drawing.Point(562, 28);
+            this.Pasirinkimai.Name = "Pasirinkimai";
+            this.Pasirinkimai.Size = new System.Drawing.Size(62, 13);
+            this.Pasirinkimai.TabIndex = 5;
+            this.Pasirinkimai.Text = "Pasirinkimai";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(563, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(61, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(563, 72);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(61, 20);
+            this.textBox2.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(631, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Ūgis";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(631, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Svoris";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(563, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Paskaičiuoti";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 450);
+            this.ClientSize = new System.Drawing.Size(836, 366);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Pasirinkimai);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ReadDataButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -157,6 +225,12 @@ namespace AntraUzduotisIntelektika
         private System.Windows.Forms.DataGridViewTextBoxColumn KMIClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn KMI;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.Label Pasirinkimai;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

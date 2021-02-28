@@ -13,6 +13,10 @@ namespace AntraUzduotisIntelektika
 {
     public partial class Form1 : Form
     {
+
+        private List<DataClassKMI> OriginalData = new List<DataClassKMI>();
+        Estimates Estimates = new Estimates();
+        
         public Form1()
         {
             InitializeComponent();
@@ -47,11 +51,34 @@ namespace AntraUzduotisIntelektika
                 float KMI = Convert.ToSingle(DataLine[4].Replace('.',','));
                 int Gender = Convert.ToInt32(DataLine[5]);
 
+                OriginalData.Add(new DataClassKMI(Name,Height,Weight,ClassKMI,KMI,Gender));
                 dataGridView1.Rows.Add(Name, Height, Weight, ClassKMI, KMI, Gender);
-
 
             }
 
+        }
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            List<DistanceData> SortedDistance = Estimates.Kontroleris(OriginalData, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
+            
+            //string table = "";
+            //foreach (var item in SortedDistance)
+            //{
+            //    table = table + item.Height + " " + item.Weight + " " + item.DistanceFirst + " " + item.DistanceSecond + "| ";
+            //}
+
+            dataGridView1.Rows.Clear();
+
+            foreach (var item in SortedDistance)
+            {
+                dataGridView1.Rows.Add(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender);
+            }
+            
+            //MessageBox.Show(table);
         }
     }
 
