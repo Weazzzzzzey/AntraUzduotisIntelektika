@@ -15,10 +15,10 @@ namespace AntraUzduotisIntelektika
         public string ClassKMI { get; set; }
         public float KMI { get; set; }
         public int Gender { get; set; }
-        public int DistanceFirst { get; set; }
-        public int DistanceSecond { get; set; }
+        public float DistanceFirst { get; set; }
+        public float DistanceSecond { get; set; }
 
-        public DistanceData(string name, int height, int weight, string classkmi, float kmi, int gender, int distanceFirst, int distanceSecond)
+        public DistanceData(string name, int height, int weight, string classkmi, float kmi, int gender, float distanceFirst, float distanceSecond)
         {
             this.Name = name;
             this.Height = height;

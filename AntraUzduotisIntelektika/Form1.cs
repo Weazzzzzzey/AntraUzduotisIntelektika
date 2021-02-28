@@ -36,6 +36,9 @@ namespace AntraUzduotisIntelektika
         private void ShowData()
         {
 
+            OriginalData.Clear();
+            dataGridView1.Rows.Clear();
+            
             string[] lines = File.ReadAllLines(label2.Text);
 
             for (int i = 0; i < lines.Length; i++)
@@ -63,22 +66,59 @@ namespace AntraUzduotisIntelektika
         private void button1_Click(object sender, EventArgs e)
         {
             
-            List<DistanceData> SortedDistance = Estimates.Kontroleris(OriginalData, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
-            
+            List<DistanceData> SortedDistance = Estimates.Kontroleris(OriginalData, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text), Convert.ToSingle(textBox3.Text),3);
+
+            MessageBox.Show(SortedDistance.Count.ToString());
+
+            dataGridView1.Rows.Clear();
+            addToListNewData(SortedDistance);
+
             //string table = "";
             //foreach (var item in SortedDistance)
             //{
             //    table = table + item.Height + " " + item.Weight + " " + item.DistanceFirst + " " + item.DistanceSecond + "| ";
             //}
 
-            dataGridView1.Rows.Clear();
+            
+            
+            //MessageBox.Show(table);
+        }
+
+        public void addToListNewData(List<DistanceData> SortedDistance)
+        {
 
             foreach (var item in SortedDistance)
             {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    dataGridView1.Rows.Add(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender);
+                } else
+
+                if (comboBox1.SelectedIndex == 1)
+                {
+                    if (item.Gender == 0)
+                    {
+                        dataGridView1.Rows.Add(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender);
+                    }
+                } else
+
+                if (comboBox1.SelectedIndex == 2)
+                {
+                    if (item.Gender == 1)
+                    {
+                        dataGridView1.Rows.Add(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender);
+                    }
+                }
+            }
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var item in OriginalData)
+            {
                 dataGridView1.Rows.Add(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender);
             }
-            
-            //MessageBox.Show(table);
         }
     }
 
