@@ -9,54 +9,102 @@ namespace AntraUzduotisIntelektika
     public class Estimates
     {
         private List<DistanceData> DistanceData = new List<DistanceData>();
+        private List<DistanceData> NormalDistanceDataWithGender = new List<DistanceData>();
 
 
-        public List<DistanceData> Kontroleris(List<DataClassKMI> originalData, int height,int weight ,float KMI, int Comination)
+        public List<DistanceData> Kontroleris(List<DataClassKMI> originalData, int height,int weight ,float KMI, int Combination, int AtstumuKof, int Kaimynai, int Gender)
         {
             DistanceData.Clear();
+            NormalDistanceDataWithGender.Clear();
 
-            if (Comination == 0)
+            if (Combination == 0)
             {
                 List<DistanceData> SortedDistance = MaxMethodHeightWeight(originalData, height, weight);
-                return NN(SortedDistance);
+                List<DistanceData> NormalDistanceDataWithGender = SeparateGender(SortedDistance, Gender);
+                return NN(NormalDistanceDataWithGender, AtstumuKof, Kaimynai);
             }
-            else if (Comination == 1)
+            else if (Combination == 1)
             {
                 List<DistanceData> SortedDistance = MaxMethodHeightKMI(originalData, height, KMI);
-                return NN(SortedDistance);
+                List<DistanceData> NormalDistanceDataWithGender = SeparateGender(SortedDistance, Gender);
+                return NN(NormalDistanceDataWithGender, AtstumuKof, Kaimynai);
             }
-            else if (Comination == 2)
+            else if (Combination == 2)
             {
                 List<DistanceData> SortedDistance = MaxMethodWeightKMI(originalData, weight, KMI);
-                return NN(SortedDistance);
+                List<DistanceData> NormalDistanceDataWithGender = SeparateGender(SortedDistance, Gender);
+                return NN(NormalDistanceDataWithGender, AtstumuKof, Kaimynai);
             }
-            else if (Comination == 3)
+            else if (Combination == 3)
             {
                 List<DistanceData> SortedDistance = MaxMethodAll(originalData, height, weight, KMI);
-                return NN(SortedDistance); ;
+                List<DistanceData> NormalDistanceDataWithGender = SeparateGender(SortedDistance, Gender);
+                return NN(NormalDistanceDataWithGender, AtstumuKof, Kaimynai); ;
             }
 
             return null;
         }
 
 
-        private List<DistanceData> NN(List<DistanceData> SortedDistance)
+        private List<DistanceData> NN(List<DistanceData> SortedDistance, int AtstumuKof, int Kaimynai)
         {
 
             List<DistanceData> NormalData = new List<DistanceData>();
 
-
+            int breakpoint = 0;
             
             foreach (var item in SortedDistance)
             {
-                if (item.DistanceFirst < 10)
+
+                if (item.DistanceFirst < AtstumuKof)
                 {
                     NormalData.Add(new DistanceData(item.Name,item.Height,item.Weight,item.ClassKMI,item.KMI,item.Gender,item.DistanceFirst,item.DistanceSecond));
+                    breakpoint++;
+                }
+
+                if (breakpoint == Kaimynai)
+                {
+                    break;
+                }
+            }
+            
+            return NormalData;
+
+        }
+
+
+        public List<DistanceData> SeparateGender(List<DistanceData> SortedDistance, int Gender)
+        {
+
+            List<DistanceData> DistanceDataWithGender = new List<DistanceData>();
+
+            foreach (var item in SortedDistance)
+            {
+                if (Gender == 0)
+                {
+                    DistanceDataWithGender.Add(new DistanceData(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender, item.DistanceFirst, item.DistanceSecond));
+                }
+                else
+
+                if (Gender == 1)
+                {
+                    if (item.Gender == 0)
+                    {
+                        DistanceDataWithGender.Add(new DistanceData(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender, item.DistanceFirst, item.DistanceSecond));
+                    }
+                }
+                else
+
+                if (Gender == 2)
+                {
+                    if (item.Gender == 1)
+                    {
+                        DistanceDataWithGender.Add(new DistanceData(item.Name, item.Height, item.Weight, item.ClassKMI, item.KMI, item.Gender, item.DistanceFirst, item.DistanceSecond));
+                    }
                 }
             }
 
-            
-            return NormalData;
+            return DistanceDataWithGender;
 
         }
 
